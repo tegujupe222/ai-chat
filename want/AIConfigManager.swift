@@ -92,6 +92,8 @@ struct AIConfig: Codable {
     var isAIEnabled: Bool
     var provider: AIProvider
     var cloudFunctionURL: String
+    // 将来に備えてクライアント側からもモデル名を渡せるように保持（未使用ならnil）
+    var preferredModel: String? = nil
     
     enum AIProvider: String, CaseIterable, Codable {
         case gemini = "gemini"

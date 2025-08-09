@@ -3,6 +3,8 @@ import Foundation
 class GeminiAPIService {
     // Cloud Function URL（動的に設定可能）
     private let cloudFunctionURL: String
+    // デフォルトのGeminiモデル（将来の変更に備えてここで一元管理）
+    private let defaultModelName: String = "gemini-2.0-flash"
     
     init(cloudFunctionURL: String) {
         self.cloudFunctionURL = cloudFunctionURL
@@ -15,6 +17,8 @@ class GeminiAPIService {
         let conversationHistory: [ChatMessage]
         let userMessage: String
         let emotionContext: String?
+        // 利用したいモデル名（サーバー側で対応していればこれを優先）
+        let model: String?
     }
     
     struct GeminiResponse: Codable {
@@ -36,7 +40,8 @@ class GeminiAPIService {
             persona: persona,
             conversationHistory: conversationHistory,
             userMessage: userMessage,
-            emotionContext: emotionContext
+            emotionContext: emotionContext,
+            model: defaultModelName
         )
         
         // JSONエンコード
