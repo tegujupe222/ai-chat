@@ -31,6 +31,7 @@ struct PersonaListView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
         .sheet(isPresented: $showingCreatePersona) {
             SetupPersonaView { newPersona in
                 // 新規作成後にそのペルソナを選択
@@ -289,6 +290,7 @@ struct CreatePersonaView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     private func createPersona() {

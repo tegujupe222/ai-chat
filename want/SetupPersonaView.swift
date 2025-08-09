@@ -90,6 +90,7 @@ struct SetupPersonaView: View {
                 NavigationView {
                     mainContent
                 }
+                .navigationViewStyle(.stack)
             }
         }
         .onAppear {

@@ -35,6 +35,7 @@ struct LegalView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

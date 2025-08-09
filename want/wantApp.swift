@@ -445,6 +445,7 @@ struct AppSettingsView: View {
                 SubscriptionView()
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     private var subscriptionStatusIcon: String {

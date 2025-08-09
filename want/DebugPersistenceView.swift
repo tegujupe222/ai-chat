@@ -148,6 +148,7 @@ struct DebugPersistenceView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     // MARK: - ✅ 修正版プライベートメソッド

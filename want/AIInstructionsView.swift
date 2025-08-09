@@ -24,6 +24,7 @@ struct AIView: View {
             }
             .navigationBarHidden(true)
         }
+        .navigationViewStyle(.stack)
         .fullScreenCover(isPresented: $showingChat) {
             if let persona = selectedPersona {
                 ChatView(isAIMode: true, persona: persona)

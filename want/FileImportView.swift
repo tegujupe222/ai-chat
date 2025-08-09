@@ -55,6 +55,7 @@ struct FileImportView: View {
                 Text(lineAnalyzer.errorMessage ?? "")
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     private var importOptionsView: some View {
@@ -371,6 +372,7 @@ struct InstructionsView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

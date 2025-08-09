@@ -300,6 +300,7 @@ struct SubscriptionView: View {
                         }
                     }
             }
+            .navigationViewStyle(.stack)
         }
         .onAppear {
             Task {

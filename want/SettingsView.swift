@@ -268,6 +268,7 @@ struct SettingsView: View {
             }
             .navigationTitle("設定")
         }
+        .navigationViewStyle(.stack)
         .sheet(isPresented: $showingAbout) {
             AboutView()
         }
@@ -391,6 +392,7 @@ struct AboutView: View {
                 }
             )
         }
+        .navigationViewStyle(.stack)
     }
 }
 
@@ -583,6 +585,7 @@ struct CancellationPolicyView: View {
                 }
             )
         }
+        .navigationViewStyle(.stack)
     }
 }
 
