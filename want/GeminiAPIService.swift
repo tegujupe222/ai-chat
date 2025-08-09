@@ -45,7 +45,9 @@ class GeminiAPIService {
         )
         
         // JSONエンコード
-        let jsonData = try JSONEncoder().encode(request)
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .secondsSince1970
+        let jsonData = try encoder.encode(request)
         
         // URLリクエストを作成
         guard let url = URL(string: cloudFunctionURL) else {

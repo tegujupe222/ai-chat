@@ -124,10 +124,15 @@ class EnhancedLocalResponseGenerator {
             personalizedResponse += " もっと詳しく聞かせて"
         }
         
-        // 口癖を時々混ぜる
-        if !persona.catchphrases.isEmpty && arc4random_uniform(3) == 0 {
+        // 口癖は「たまにだけ」混ぜる（約10%）。毎回は不自然なので避ける。
+        if !persona.catchphrases.isEmpty && Int.random(in: 0..<10) == 0 {
             let catchphrase = persona.catchphrases.randomElement() ?? ""
-            personalizedResponse = "\(catchphrase) \(personalizedResponse)"
+            // 先頭固定は不自然になりやすいので、文末に添えることを優先
+            if Bool.random() {
+                personalizedResponse += "。\(catchphrase)"
+            } else {
+                personalizedResponse = "\(personalizedResponse) \(catchphrase)"
+            }
         }
         
         return personalizedResponse
