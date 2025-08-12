@@ -53,7 +53,7 @@ export default async function handler(req, res) {
       location: vertexLocation,
     });
 
-    const generativeModel = vertexAI.getGenerativeModel({
+    const generativeModel = vertexAI.preview.getGenerativeModel({
       model: geminiModel,
       systemInstruction: {
         parts: [{ text: BASE_SYSTEM_PROMPT }]
