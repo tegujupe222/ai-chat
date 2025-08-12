@@ -6,7 +6,6 @@
     }
   },
   "env": {
-    "GEMINI_MODEL": "gemini-2.0-flash",
-    "VERTEX_LOCATION": "asia-northeast1"
+    "GEMINI_MODEL": "gemini-2.0-flash"
   }
 }

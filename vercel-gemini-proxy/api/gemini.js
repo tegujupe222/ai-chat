@@ -1,5 +1,3 @@
-import { VertexAI } from '@google-cloud/vertexai';
-
 // システムプロンプト（自然な会話のための指示）
 const BASE_SYSTEM_PROMPT = `あなたは自然で人間らしい会話を提供するAIアシスタントです。
 
@@ -40,25 +38,11 @@ export default async function handler(req, res) {
 
     // 環境変数から設定を取得
     const geminiModel = model || process.env.GEMINI_MODEL || 'gemini-2.0-flash';
-    const vertexLocation = process.env.VERTEX_LOCATION || 'asia-northeast1';
-    const googleProjectId = process.env.GOOGLE_CLOUD_PROJECT;
+    const apiKey = process.env.GEMINI_API_KEY;
 
-    if (!googleProjectId) {
-      return res.status(500).json({ error: 'GOOGLE_CLOUD_PROJECT environment variable is required' });
+    if (!apiKey) {
+      return res.status(500).json({ error: 'GEMINI_API_KEY environment variable is required' });
     }
-
-    // Vertex AI初期化
-    const vertexAI = new VertexAI({
-      project: googleProjectId,
-      location: vertexLocation,
-    });
-
-    const generativeModel = vertexAI.preview.getGenerativeModel({
-      model: geminiModel,
-      systemInstruction: {
-        parts: [{ text: BASE_SYSTEM_PROMPT }]
-      }
-    });
 
     // 会話履歴を構築
     let conversationContext = '';
@@ -96,10 +80,32 @@ export default async function handler(req, res) {
     // 現在のメッセージ
     conversationContext += `ユーザー: ${userMessage}\nAI:`;
 
-    // Gemini API呼び出し
-    const result = await generativeModel.generateContent(conversationContext);
-    const response = await result.response;
-    const text = response.text();
+    // Gemini API直接呼び出し
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: conversationContext
+          }]
+        }],
+        systemInstruction: {
+          parts: [{
+            text: BASE_SYSTEM_PROMPT
+          }]
+        }
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Gemini API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    const text = data.candidates[0].content.parts[0].text;
 
     // レスポンスを返す
     res.status(200).json({
