@@ -8,11 +8,5 @@
   "env": {
     "GEMINI_MODEL": "gemini-2.0-flash",
     "VERTEX_LOCATION": "asia-northeast1"
-  },
-  "builds": [
-    {
-      "src": "api/gemini.js",
-      "use": "@vercel/node"
-    }
-  ]
+  }
 }
