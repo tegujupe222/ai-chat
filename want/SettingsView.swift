@@ -86,7 +86,7 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    .onChange(of: serverValidationEnabled) { newValue in
+                    .onChange(of: serverValidationEnabled) { _, newValue in
                         subscriptionManager.setServerValidationEnabled(newValue)
                     }
                     
@@ -145,7 +145,7 @@ struct SettingsView: View {
                             Text("バージョン")
                                 .font(.body)
                             
-                            Text("1.0.3")
+                            Text("1.0.5")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }

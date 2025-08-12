@@ -142,7 +142,8 @@ class SubscriptionManager: ObservableObject {
     /// - Parameter transaction: 検証するトランザクション
     private func validateWithServer(transaction: Transaction) async {
         do {
-            // レシートデータを取得
+            // レシートデータを取得（StoreKit 2対応）
+            // TODO: iOS 18.0以降ではAppTransaction.sharedとTransaction.allを使用
             guard let receiptURL = Bundle.main.appStoreReceiptURL,
                   let receiptData = try? Data(contentsOf: receiptURL) else {
                 print("❌ レシートデータの取得に失敗")
