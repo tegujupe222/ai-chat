@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "functions": {
+    "api/gemini.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "GEMINI_MODEL": "gemini-2.0-flash",
+    "VERTEX_LOCATION": "asia-northeast1"
+  }
+}

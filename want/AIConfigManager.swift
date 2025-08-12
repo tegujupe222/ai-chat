@@ -18,6 +18,9 @@ class AIConfigManager: ObservableObject {
             self.currentConfig = config
         } else {
             // デフォルト設定
+            // TODO: Vercel移行時に以下のURLに変更
+            // 現在: Google Cloud Functions
+            // 移行後: https://your-project.vercel.app/api/gemini
             self.currentConfig = AIConfig(
                 isAIEnabled: true,
                 provider: .gemini,
