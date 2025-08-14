@@ -44,7 +44,7 @@ Vercelダッシュボードで以下を設定：
 
 **必須環境変数:**
 - `GOOGLE_CLOUD_PROJECT`: `gen-lang-client-0344989001`
-- `GEMINI_MODEL`: `gemini-2.0-flash`
+- `GEMINI_MODEL`: `gemini-2.0-flash-lite`
 - `VERTEX_LOCATION`: `asia-northeast1`
 
 **設定方法:**
@@ -77,7 +77,7 @@ https://your-project.vercel.app/api/gemini
 ```json
 {
   "response": "こんにちは！お元気ですか？",
-  "model": "gemini-2.0-flash",
+  "model": "gemini-2.0-flash-lite",
   "timestamp": "2024-01-01T00:00:00.000Z"
 }
 ```

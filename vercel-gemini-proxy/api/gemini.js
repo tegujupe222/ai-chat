@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     }
 
     // 環境変数から設定を取得
-    const geminiModel = model || process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+    const geminiModel = model || process.env.GEMINI_MODEL || 'gemini-2.0-flash-lite';
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {

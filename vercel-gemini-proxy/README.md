@@ -26,7 +26,7 @@ vercel env add VERTEX_LOCATION
 
 **必須環境変数:**
 - `GOOGLE_CLOUD_PROJECT`: Google Cloud プロジェクトID
-- `GEMINI_MODEL`: 使用するGeminiモデル（デフォルト: gemini-2.5-flash）
+- `GEMINI_MODEL`: 使用するGeminiモデル（デフォルト: gemini-2.0-flash-lite）
 - `VERTEX_LOCATION`: Vertex AIのリージョン（デフォルト: asia-northeast1）
 
 ### 4. デプロイ
@@ -38,7 +38,7 @@ vercel --prod
 
 ### 環境変数
 - `GOOGLE_CLOUD_PROJECT`: Google Cloud プロジェクトID
-- `GEMINI_MODEL`: gemini-2.5-flash または gemini-2.0-pro
+- `GEMINI_MODEL`: gemini-2.0-flash-lite または gemini-2.0-pro
 - `VERTEX_LOCATION`: asia-northeast1（推奨）
 
 ### API エンドポイント

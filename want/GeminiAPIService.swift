@@ -4,7 +4,7 @@ class GeminiAPIService {
     // Cloud Function URL（動的に設定可能）
     private let cloudFunctionURL: String
     // デフォルトのGeminiモデル（将来の変更に備えてここで一元管理）
-    private let defaultModelName: String = "gemini-2.5-flash"
+    private let defaultModelName: String = "gemini-2.0-flash-lite"
     
     init(cloudFunctionURL: String) {
         self.cloudFunctionURL = cloudFunctionURL
