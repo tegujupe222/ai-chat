@@ -1,4 +1,4 @@
-# App Store審査用メモ - バージョン1.0.5
+# App Store Review Notes - want v1.0.6
 
 ## 審査担当者様へ
 
@@ -22,7 +22,7 @@
 - **NavigationView修正**: `.navigationViewStyle(.stack)`適用
 
 ### AI会話の自然さ向上
-- **Gemini 2.0 Flash Lite採用**: より自然で人間らしい会話を実現
+- **Gemini 2.0 Flash Lite採用**: より軽量で高速な会話を実現
 - **口癖・定型文の最適化**: 会話の流れに自然に溶け込む応答
 - **感情理解の向上**: ユーザーの文脈を理解した適切な共感
 

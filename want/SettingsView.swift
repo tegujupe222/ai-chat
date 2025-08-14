@@ -145,7 +145,7 @@ struct SettingsView: View {
                             Text("バージョン")
                                 .font(.body)
                             
-                            Text("1.0.5")
+                            Text("バージョン 1.0.6")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
